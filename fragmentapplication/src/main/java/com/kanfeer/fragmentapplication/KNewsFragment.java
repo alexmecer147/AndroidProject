@@ -21,6 +21,7 @@ import java.util.ArrayList;
  */
 public class KNewsFragment extends Fragment {
 
+    private FragToActivity FTAListener;//定义接口类型变量
     private ListView KNewsListView;
     private ArrayList newsList;
     private String[] news = {"喀什已基本排除疫情蔓延可能性","中国人均预期寿命增加近1岁","专家回应大陆军机巡台常态化","外交部回应蓬佩奥再提中国威胁","人社部:确保养老金按时足额发放","一颗价值超2亿钻石运抵上海"};
@@ -58,6 +59,13 @@ public class KNewsFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof FragToActivity){
+            FTAListener = (FragToActivity) context;
+        }
+    }
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -68,42 +76,32 @@ public class KNewsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        KNewsListView = getActivity().findViewById(R.id.KNewsListView);
-        newsAdapter = new ArrayAdapter(getContext(),R.layout.newslistitemlayout,news);
-        KNewsListView.setAdapter(newsAdapter);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_k_news, container, false);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        KNewsListView = getActivity().findViewById(R.id.KNewsListView);
+        newsAdapter = new ArrayAdapter(getContext(),R.layout.newslistitemlayout,news);//因为这里需要获得上下文，所以只能在这个方法里
+        KNewsListView.setAdapter(newsAdapter);
         KNewsListView.setOnItemClickListener((parent, view, position, id) -> {
             Bundle bundle = new Bundle();
             bundle.putString("name",news[position]);
             bundle.putInt("position",position);
             FTAListener.FTAMethod(bundle);//数据传给Activity
         });
-        return inflater.inflate(R.layout.fragment_k_news, container, false);
     }
+
 
     public interface FragToActivity{
         public void FTAMethod(Bundle bundle);
-    }
-
-    private FragToActivity FTAListener;//定义接口类型变量
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof FragToActivity){
-            FTAListener = (FragToActivity) context;
-        }
     }
 
     public void onDetach() {
         super.onDetach();
         FTAListener = null;
     }
-
 }

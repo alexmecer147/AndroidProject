@@ -1,7 +1,6 @@
 package com.kanfeer.fragmentapplication;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,6 +17,7 @@ public class KanfeerChatActivityWithFragments extends AppCompatActivity implemen
     private KNewsFragment kNewsFragment;
     private KNewsDetailFragment kNewsDetailFragment;
     private FragmentManager fragmentManager;
+    //int position=0;
 
 
     @Override
@@ -27,11 +27,15 @@ public class KanfeerChatActivityWithFragments extends AppCompatActivity implemen
         kFriendsFragment = new KFriendsFragment();
         kNewsFragment = new KNewsFragment();
 
+
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransactionA = fragmentManager.beginTransaction();
         // FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
         //kNewsFragment.setArguments(bundle1);
         fragmentTransactionA.add(R.id.KCMainFragment,kFriendsFragment);
+        fragmentTransactionA.add(R.id.KCMainFragment,kNewsFragment);
+        //fragmentTransactionA.add(R.id.KCMainFragment,kNewsDetailFragment);
+        hideOthers(1);
 //        fragmentTransaction2.add(R.id.KCMainFragment,kNewsFragment);
 //        fragmentTransaction2.hide(kNewsFragment);
         fragmentTransactionA.commit();
@@ -42,40 +46,47 @@ public class KanfeerChatActivityWithFragments extends AppCompatActivity implemen
         Button ubtn = findViewById(R.id.NavigatorUser);
         Button sbtn = findViewById(R.id.NavigatorSetting);
 
-        fbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                KCTitle.setText("消息");
-                FragmentTransaction fragmentTransactionF = fragmentManager.beginTransaction();
-                fragmentTransactionF.replace(R.id.KCMainFragment,kFriendsFragment);
-                //fragmentTransaction1.commit();
-                fragmentTransactionF.commit();
-            }
+        fbtn.setOnClickListener(v -> {
+            KCTitle.setText("消息");
+//                FragmentTransaction fragmentTransactionF = fragmentManager.beginTransaction();
+            hideOthers(1);
+            //fragmentTransaction1.commit();
+            //fragmentTransactionF.commit();
         });
 
-        nbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                KCTitle.setText("新闻");
-                FragmentTransaction fragmentTransactionN = fragmentManager.beginTransaction();
-                //fragmentTransaction.
-                fragmentTransactionN.replace(R.id.KCMainFragment,kNewsFragment);
-                //fragmentTransaction1.commit();
-                fragmentTransactionN.commit();
-            }
+        nbtn.setOnClickListener(v -> {
+            hideOthers(2);
+            KCTitle.setText("新闻");
+//                FragmentTransaction fragmentTransactionN = fragmentManager.beginTransaction();
+//                //fragmentTransaction.
+//                fragmentTransactionN.replace(R.id.KCMainFragment,kNewsFragment);
+//                //fragmentTransaction1.commit();
+//                fragmentTransactionN.commit();
         });
-        ubtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                KCTitle.setText("个人");
+        ubtn.setOnClickListener(v -> KCTitle.setText("个人"));
+        sbtn.setOnClickListener(v -> KCTitle.setText("设置"));
+    }
+
+    public void hideOthers(int i){
+        FragmentTransaction p = fragmentManager.beginTransaction();
+        if (i == 1){
+            p.hide(kNewsFragment);
+            if (kNewsDetailFragment!=null) {
+                p.hide(kNewsDetailFragment);
             }
-        });
-        sbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                KCTitle.setText("设置");
+            p.show(kFriendsFragment);
+        }else if (i == 2){
+            p.hide(kFriendsFragment);
+            if (kNewsDetailFragment!=null) {
+                p.hide(kNewsDetailFragment);
             }
-        });
+            p.show(kNewsFragment);
+        }else if (i == 3){
+            p.hide(kFriendsFragment);
+            p.hide(kNewsFragment);
+            p.show(kNewsDetailFragment);
+        }
+        p.commit();
     }
 
     @Override
@@ -83,10 +94,16 @@ public class KanfeerChatActivityWithFragments extends AppCompatActivity implemen
 //        bundle1 = bundle;
         FragmentTransaction fragmentTransactionND = fragmentManager.beginTransaction();
         fragmentTransactionND.addToBackStack(null);//只返回到上一个fragment界面
+
         kNewsDetailFragment = new KNewsDetailFragment();
-        kNewsFragment.setArguments(bundle);
-        fragmentTransactionND.remove(kNewsFragment);
+        kNewsDetailFragment.setArguments(bundle);
+        if (bundle.isEmpty()){
+            System.out.println("main empty");
+        }else {
+            System.out.println("main not empty");
+        }
         fragmentTransactionND.add(R.id.KCMainFragment,kNewsDetailFragment);
         fragmentTransactionND.commit();
+        hideOthers(3);
     }
 }
