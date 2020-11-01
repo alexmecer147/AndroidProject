@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KCalculatorActivity"
+    android:orientation="vertical"
+    android:rowCount="7"
+    android:columnCount="10">
+
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnSpan="6"
+        android:layout_height="50dp"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/preResult"
+        android:layout_row="0"
+        android:layout_column="8"
+        android:layout_columnSpan="2"
+        android:layout_height="50dp"
+        android:background="#EA68E3"
+        android:text=""/>
+
+    <Button android:id="@+id/btn_c" android:text="@string/c" android:layout_row="1" android:layout_column="0" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_del" android:text="@string/del" android:layout_row="1" android:layout_column="2" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_exp" android:text="@string/aexpect" android:layout_row="1" android:layout_column="4" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_mul" android:text="@string/amultiply" android:layout_row="1" android:layout_column="6" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_7" android:text="@string/_7" android:layout_row="2" android:layout_column="0"  android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_8" android:text="@string/_8" android:layout_row="2" android:layout_column="2"  android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_9" android:text="@string/_9" android:layout_row="2" android:layout_column="4"  android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_sub" android:text="@string/asubtract" android:layout_row="2" android:layout_column="6"  android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_4" android:text="@string/_4" android:layout_row="3" android:layout_column="0"  android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_5" android:text="@string/_5" android:layout_row="3" android:layout_column="2" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_6" android:text="@string/_6" android:layout_row="3" android:layout_column="4" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_add" android:text="@string/aadd" android:layout_row="3" android:layout_column="6" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_1" android:text="@string/_1" android:layout_row="4" android:layout_column="0" android:layout_columnSpan="2" />
+
+    <Button android:id="@+id/btn_2" android:text="@string/_2" android:layout_row="4" android:layout_column="2" android:layout_columnSpan="2"/>
+
+    <Button android:id="@+id/btn_3" android:text="@string/_3" android:layout_row="4" android:layout_column="4" android:layout_columnSpan="2"/>
+
+    <Button
+        android:id="@+id/btn_equ"
+        android:layout_height="96dp"
+        android:layout_row="4"
+        android:layout_rowSpan="2"
+        android:layout_column="6"
+        android:text="@string/aequal" />
+
+    <Button
+        android:id="@+id/btn_0"
+        android:layout_width="137dp"
+        android:layout_row="5"
+        android:layout_column="3"
+        android:layout_columnSpan="3"
+        android:text="@string/_0" />
+
+    <Button
+        android:id="@+id/btn_poi"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_row="5"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:text="@string/apoint" />
+
+
+</GridLayout>

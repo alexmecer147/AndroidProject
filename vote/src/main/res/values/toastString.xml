@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_string">已投票</string>
+    <string name="view_toast_string">已点赞</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FragmentApplication</string>
+    <string name="fragment_button">fragment里的一个button</string>
+    <string name="fragment_textview">fragment里的一个textview</string>
+    <string name="fragment_button1">fragment里的另一个button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello First fragment</string>
+</resources>

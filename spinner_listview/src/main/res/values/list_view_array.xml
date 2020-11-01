@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_view_game">
+        <item>mhw</item>
+        <item>ds</item>
+        <item>dmc</item>
+        <item>gta5</item>
+    </string-array>
+</resources>

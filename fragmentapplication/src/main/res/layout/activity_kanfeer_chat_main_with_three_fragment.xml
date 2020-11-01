@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KanfeerChatActivityWithFragments"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/KCTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="消息"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:id="@+id/KCMainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:background="@android:color/white"/>
+
+    <LinearLayout
+        android:background="@color/design_default_color_error"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <RadioGroup
+        android:id="@+id/KCNavigatorBars"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/purple_200"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/NavigatorFriends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="朋友"/>
+
+        <RadioButton
+            android:id="@+id/NavigatorNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="新闻"/>
+
+        <RadioButton
+            android:id="@+id/NavigatorUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:text="个人"/>
+
+        <RadioButton
+            android:id="@+id/NavigatorSetting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="设置"/>
+
+    </RadioGroup>
+</LinearLayout>

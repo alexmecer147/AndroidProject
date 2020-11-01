@@ -1,0 +1,11 @@
+include ':fragmentapplication'
+include ':calculatorapplication'
+include ':myintenttestapplication'
+include ':thenewadaptercommentactivity'
+include ':vote'
+include ':spinner_listview'
+include ':spinner_adapter_picker_alert_dialog'
+include ':kanfeerchat'
+include ':app2'
+include ':THETESTApp'
+rootProject.name = "HelloAndroid"

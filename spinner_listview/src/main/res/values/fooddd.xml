@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="food_adapter">
+        <item>鸡蛋</item>
+        <item>玉米</item>
+        <item>汉堡</item>
+        <item>麻辣烫</item>
+    </string-array>
+</resources>

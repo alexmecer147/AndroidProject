@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/THETESTApp" />
+            <option value="$PROJECT_DIR$/app2" />
+            <option value="$PROJECT_DIR$/calculatorapplication" />
+            <option value="$PROJECT_DIR$/fragmentapplication" />
+            <option value="$PROJECT_DIR$/kanfeerchat" />
+            <option value="$PROJECT_DIR$/myintenttestapplication" />
+            <option value="$PROJECT_DIR$/spinner_adapter_picker_alert_dialog" />
+            <option value="$PROJECT_DIR$/spinner_listview" />
+            <option value="$PROJECT_DIR$/thenewadaptercommentactivity" />
+            <option value="$PROJECT_DIR$/vote" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">spinner_listview</string>
+    <string-array name="kkk">
+        <item>kk3</item>
+        <item>kk4</item>
+        <item>kk2</item>
+        <item>kkk0</item>
+        <item>kk3</item>
+    </string-array>
+</resources>
