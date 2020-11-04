@@ -1,13 +1,13 @@
 package com.kanfeer.myintenttestapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
 
@@ -46,8 +46,9 @@ public class IntentPrecticeActivity extends AppCompatActivity {
 
             }
         });
+        Intent reIntent = getIntent();
 
-        onActivityResult(1,1,);
+        onActivityResult(1,1, reIntent);
     }
 }
 

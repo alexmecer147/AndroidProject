@@ -1,3 +1,4 @@
+include ':thesharedpreferencesapplication'
 include ':fragmentapplication'
 include ':calculatorapplication'
 include ':myintenttestapplication'

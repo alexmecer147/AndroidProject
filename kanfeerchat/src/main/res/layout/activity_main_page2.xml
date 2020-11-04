@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainPageActivity"
     android:orientation="vertical"
-    android:background="@mipmap/main_bg7">
+    android:background="@mipmap/main_bg8">
+
+    <LinearLayout
+        android:id="@+id/kcfragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:background="#efef"
@@ -22,6 +28,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/kc_chat_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="会话"
@@ -32,6 +39,7 @@
                 android:gravity="center"/>
 
             <RadioButton
+                android:id="@+id/kc_connector_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="联系人"
@@ -42,6 +50,7 @@
                 android:gravity="center"/>
 
             <RadioButton
+                android:id="@+id/kc_zone_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="空间"
@@ -52,7 +61,6 @@
                 android:gravity="center"/>
 
         </RadioGroup>
-
 
     </LinearLayout>
 
