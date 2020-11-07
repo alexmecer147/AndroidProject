@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainPageActivity extends AppCompatActivity {
+public class MainPageActivity extends AppCompatActivity implements KCChatFragment.ChatToDetail{
 
     private KCZoneFragment kcZoneFragment;
     private KCChatFragment kcChatFragment;
@@ -20,28 +20,33 @@ public class MainPageActivity extends AppCompatActivity {
     private RadioButton connectorbutton;
     private RadioButton zonebutton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page2);
         Intent it = getIntent();
         Bundle bd = it.getExtras();
+        System.out.println(bd.getString("iname")+"fromMainPage");
         chatbutton=findViewById(R.id.kc_chat_button);
         connectorbutton=findViewById(R.id.kc_connector_button);
         zonebutton=findViewById(R.id.kc_zone_button);
-        kcZoneFragment=new KCZoneFragment(bd);
-        kcChatFragment=new KCChatFragment(bd);
-        kcConnectersFragment=new KCConnectersFragment(bd);
-        kcChatDetailFragment=new KCChatDetailFragment(bd);
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        kcZoneFragment=new KCZoneFragment();
+        kcChatFragment=new KCChatFragment();
+        kcConnectersFragment=new KCConnectersFragment();
+        //kcChatDetailFragment=new KCChatDetailFragment();
+        kcZoneFragment.setArguments(bd);
+        kcChatFragment.setArguments(bd);
+        kcConnectersFragment.setArguments(bd);
+
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.kcfragment_container,kcChatFragment);
         fragmentTransaction.add(R.id.kcfragment_container,kcConnectersFragment);
         fragmentTransaction.add(R.id.kcfragment_container,kcZoneFragment);
-        fragmentTransaction.add(R.id.kcfragment_container,kcChatDetailFragment);
+        //fragmentTransaction.add(R.id.kcfragment_container,kcChatDetailFragment);
         fragmentTransaction.hide(kcConnectersFragment);
         fragmentTransaction.hide(kcZoneFragment);
-        fragmentTransaction.hide(kcChatDetailFragment);
+        //fragmentTransaction.hide(kcChatDetailFragment);
         fragmentTransaction.commit();
 
         chatbutton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +76,8 @@ public class MainPageActivity extends AppCompatActivity {
                 fragmentTransaction1.commit();
             }
         });
+
+//        kcFToA();
     }
 
     public void hideAll(){
@@ -89,4 +96,27 @@ public class MainPageActivity extends AppCompatActivity {
         }
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void kcFToA(Bundle bundle) {
+        System.out.println(bundle.getInt("position"));
+        kcChatDetailFragment = new KCChatDetailFragment();
+        kcChatDetailFragment.setArguments(bundle);
+        hideAll();
+        FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
+        fragmentTransaction1.add(R.id.kcfragment_container,kcChatDetailFragment);
+        fragmentTransaction1.show(kcChatDetailFragment);
+        fragmentTransaction1.commit();
+    }
+
+
+
+
+//    public void replaceFragment(){
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.kcfragment_container,kcChatDetailFragment);
+////        fragmentTransaction.remove(kcChatFragment);
+////        fragmentTransaction.add(R.id.kcfragment_container,kcChatDetailFragment);
+//        fragmentTransaction.commit();
+//    }
 }

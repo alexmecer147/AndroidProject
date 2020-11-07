@@ -22,7 +22,6 @@ import java.util.LinkedList;
  */
 public class KFriendsFragment extends Fragment {
 
-
     private LinkedList<Person> friends;
     private PAdapter friendsAdapter;
     private String[] names = {"小红","小白","小黑"};
@@ -44,6 +43,7 @@ public class KFriendsFragment extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
+Expected resource of type layout
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.

@@ -12,13 +12,15 @@
         android:id="@+id/kcfragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="9"
+        android:orientation="vertical"/>
 
     <LinearLayout
         android:background="#efef"
-        android:layout_marginTop="550dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+
         android:orientation="vertical">
 
         <RadioGroup
@@ -31,8 +33,8 @@
                 android:id="@+id/kc_chat_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="会话"
-                android:textSize="40dp"
+                android:text="@string/text1"
+                android:textSize="40sp"
                 android:textColor="@android:color/holo_orange_dark"
                 android:button="@null"
                 android:layout_weight="1"

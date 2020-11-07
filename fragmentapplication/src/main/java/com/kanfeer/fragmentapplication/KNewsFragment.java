@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -87,11 +88,14 @@ public class KNewsFragment extends Fragment {
         KNewsListView = getActivity().findViewById(R.id.KNewsListView);
         newsAdapter = new ArrayAdapter(getContext(),R.layout.newslistitemlayout,news);//因为这里需要获得上下文，所以只能在这个方法里
         KNewsListView.setAdapter(newsAdapter);
-        KNewsListView.setOnItemClickListener((parent, view, position, id) -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("name",news[position]);
-            bundle.putInt("position",position);
-            FTAListener.FTAMethod(bundle);//数据传给Activity
+        KNewsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name",news[position]);
+                bundle.putInt("position",position);
+                FTAListener.FTAMethod(bundle);//数据传给Activity
+            }
         });
     }
 

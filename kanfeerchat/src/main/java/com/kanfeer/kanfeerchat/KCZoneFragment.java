@@ -1,11 +1,15 @@
 package com.kanfeer.kanfeerchat;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -24,13 +28,17 @@ public class KCZoneFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    //private Bundle bundle;
     private Bundle bundle;
+    private Button quitButton;
 
     private TextView kczonecontent;
-    public KCZoneFragment(Bundle bundle) {
-        // Required empty public constructor
-        this.bundle=bundle;
-    }
+//    public KCZoneFragment(Bundle bundle) {
+//        // Required empty public constructor
+//        this.bundle=bundle;
+//        //kczonecontent.setText(bundle.getString("name"));
+//
+//    }
 
     public KCZoneFragment() {
 
@@ -55,6 +63,12 @@ public class KCZoneFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        bundle=getArguments();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -69,7 +83,17 @@ public class KCZoneFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_k_c_zone, container, false);
         kczonecontent=view.findViewById(R.id.KCZoneContent);
-
+        System.out.println("fromzone"+bundle.getString("iname"));
+        kczonecontent.setText(bundle.getString("iname"));
+        quitButton=view.findViewById(R.id.kc_quit_login_button);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getContext(),LoginActivity.class);
+                it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(it);
+            }
+        });
         return view;
     }
 

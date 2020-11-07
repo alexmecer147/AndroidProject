@@ -27,7 +27,6 @@ public class KanfeerChatActivityWithFragments extends AppCompatActivity implemen
         kFriendsFragment = new KFriendsFragment();
         kNewsFragment = new KNewsFragment();
 
-
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransactionA = fragmentManager.beginTransaction();
         // FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
