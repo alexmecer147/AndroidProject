@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KCChatDetailFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/kc_top_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=""
+        android:background="#6EB9F4"/>
+
+    <ListView
+        android:layout_marginTop="55dp"
+        android:id="@+id/chat_detail_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="hello_chatdetail_fragment" />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="llllll" />-->
+
+</FrameLayout>

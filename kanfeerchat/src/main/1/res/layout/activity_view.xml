@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View"
+    android:orientation="vertical"
+    android:background="@mipmap/main_bg6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/side_bg1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/return_label"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="意见反馈"
+            android:textSize="30dp" />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:hint="请大胆说出你的想法，我们会努力改正的"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/cardview_light_background"/>
+
+    <EditText
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/background_light"
+        android:text="12345678910"/>
+
+    <Button
+        android:id="@+id/view_upload_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="提交反馈"/>
+
+</LinearLayout>

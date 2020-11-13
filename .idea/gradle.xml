@@ -14,12 +14,15 @@
             <option value="$PROJECT_DIR$/THETESTApp" />
             <option value="$PROJECT_DIR$/app2" />
             <option value="$PROJECT_DIR$/calculatorapplication" />
+            <option value="$PROJECT_DIR$/fileiospandsdapplication" />
             <option value="$PROJECT_DIR$/fragmentapplication" />
             <option value="$PROJECT_DIR$/kanfeerchat" />
             <option value="$PROJECT_DIR$/myintenttestapplication" />
             <option value="$PROJECT_DIR$/spinner_adapter_picker_alert_dialog" />
             <option value="$PROJECT_DIR$/spinner_listview" />
+            <option value="$PROJECT_DIR$/sqliteexamapplication" />
             <option value="$PROJECT_DIR$/thenewadaptercommentactivity" />
+            <option value="$PROJECT_DIR$/thesdreadwriteapplication" />
             <option value="$PROJECT_DIR$/thesharedpreferencesapplication" />
             <option value="$PROJECT_DIR$/vote" />
           </set>

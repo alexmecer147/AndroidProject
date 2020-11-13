@@ -21,6 +21,7 @@ import java.util.LinkedList;
  * Use the {@link KCChatDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class KCChatDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -35,6 +36,8 @@ public class KCChatDetailFragment extends Fragment {
 
     private String[] chatList;
     private int[] avatars;
+
+
 
     public KCChatDetailFragment() {
         // Required empty public constructor
@@ -96,7 +99,7 @@ public class KCChatDetailFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        mainPageActivity.returnFrag();
+        //mainPageActivity.returnFrag();
     }
 
     @Override

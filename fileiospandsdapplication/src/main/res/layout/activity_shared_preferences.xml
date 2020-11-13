@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SharedPreferencesActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/design_default_color_error"/>
+
+    <EditText
+        android:id="@+id/the_key_you_make"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="SharedPreferences键输入此处"
+        android:textSize="20sp"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/shared_store_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:hint="输入你要存入的文字"/>
+
+    <TextView
+        android:id="@+id/shared_show_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:hint="你存入的文字显示在此"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/store_text_to_xml_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="写入文字"/>
+
+        <Button
+            android:id="@+id/show_text_from_xml_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="读取文字"/>
+    </LinearLayout>
+
+
+</LinearLayout>

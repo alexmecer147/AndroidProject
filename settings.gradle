@@ -1,3 +1,6 @@
+include ':thesdreadwriteapplication'
+include ':sqliteexamapplication'
+include ':fileiospandsdapplication'
 include ':thesharedpreferencesapplication'
 include ':fragmentapplication'
 include ':calculatorapplication'
