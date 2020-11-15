@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.kanfeer.sqliteexamapplication.entity.Student;
 import com.kanfeer.sqliteexamapplication.helper.StudentSQLiteOpenHelper;
@@ -63,7 +64,6 @@ public class StudentBpo {
         cv.put("major",student.getStudentMajor());
         cv.put("age",student.getStudentAge());
         long position = stuDB.insert("student",null,cv);
-
         //String sqlInsert = "insert into student (id,name,age,major) values (?,?,?,?)";
         //stuDB.execSQL(sqlInsert,new Object[]{student.getStudentId(),student.getStudentName(),student.getStudentAge(),student.getStudentMajor()});
         stuDB.close();
@@ -72,8 +72,11 @@ public class StudentBpo {
     public static void deleteById(Context context, int studentId){
         StudentSQLiteOpenHelper ssop = new StudentSQLiteOpenHelper(context,"student.db",null,1);
         SQLiteDatabase sqlDB = ssop.getWritableDatabase();
-        sqlDB.delete("student","id =",new String[]{String.valueOf(studentId)});
+       // String sqlDelete = "delete from student where id = ?";
+        sqlDB.delete("student","id=?",new String[]{String.valueOf(studentId)});
+        //sqlDB.execSQL(sqlDelete,new Object[]{studentId});
         sqlDB.close();
+        Toast.makeText(context,"删除成功",Toast.LENGTH_SHORT).show();
     }
 
     public static void update(Context context,Student student, int oldId){
@@ -84,10 +87,7 @@ public class StudentBpo {
         cv.put("name",student.getStudentName());
         cv.put("age",student.getStudentAge());
         cv.put("major",student.getStudentMajor());
-        sqlDB.update("student",cv,"id = ",new String[]{String.valueOf(oldId)});
+        sqlDB.update("student",cv,"id=? ",new String[]{String.valueOf(oldId)});
         sqlDB.close();
     }
-
-
-
 }

@@ -11,21 +11,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello SQL!"/>
+    <TextView
+        android:id="@+id/textView_student_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFEB3B"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="学号"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_gravity="center_vertical"/>
         <EditText
             android:id="@+id/student_id_edit_text"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="6"
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"/>
@@ -36,15 +41,15 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:text="姓名"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"/>
+            android:gravity="center"/>
         <EditText
             android:id="@+id/student_name_edit_text"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="6"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"/>
@@ -56,15 +61,15 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:text="年龄"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"/>
+            android:gravity="center"/>
         <EditText
             android:id="@+id/student_age_edit_text"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="6"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"/>
@@ -75,15 +80,15 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:text="专业"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"/>
+            android:gravity="center"/>
         <EditText
             android:id="@+id/student_major_edit_text"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="6"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"/>
@@ -125,7 +130,7 @@
     </LinearLayout>
     <ListView
         android:id="@+id/list_view_query"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
