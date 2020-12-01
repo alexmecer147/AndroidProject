@@ -104,9 +104,14 @@ public class SystemContentProviderActivity extends AppCompatActivity {
         buttonQuery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listContacts = ContactDao.query(getApplicationContext());
+                if (editTextName.getText().toString() == "") {
+                    listContacts = ContactDao.query(getApplicationContext());
+                }else {
+                    listContacts = ContactDao.queryOne(getApplicationContext(),editTextName.getText().toString());
+                }
                 sysAdapter = new SimpleAdapter(getApplicationContext(),listContacts,R.layout.layout_list_view_system,new String[]{"name","phone","email"},new int[]{R.id.textView_contact_name,R.id.textView_contact_phone,R.id.textView_contact_email});
                 listView.setAdapter(sysAdapter);
+
             }
         });
 

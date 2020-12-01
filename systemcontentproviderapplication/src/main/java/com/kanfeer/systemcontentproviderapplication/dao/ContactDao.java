@@ -154,6 +154,45 @@ public class ContactDao {
         }
         return list;
     }
+
+    public static List<Map<String, String>> queryOne(Context context,String name){
+        List<Map<String,String>> list = new ArrayList<>();
+        ContentResolver cr = context.getContentResolver();
+        Uri uri = Uri.parse("content://com.android.contacts/raw_contacts");
+        Cursor cs1 = cr.query(uri, new String[]{ContactsContract.Data._ID}, "display_name like ?", new String[]{"%"+name+"%"}, null);
+        uri = Uri.parse("content://com.android.contacts/data");
+        while (cs1.moveToNext()){
+            int id = cs1.getInt(0);
+            System.out.println("id:"+id);
+            Map<String, String> map = new HashMap<>();
+            Cursor cs2 = cr.query(uri, new String[]{"data1"}, "mimetype_id=? and raw_contact_id = ?", new String[]{"7", id + ""}, null);
+            if (cs2.moveToPosition(0)) {
+                //System.out.println("cs2.getColumnName:" + cs2.getColumnName(0) + "; cs2.getString" + cs2.getString(0));
+                map.put("name", cs2.getString(0));
+            }else {
+                Toast.makeText(context,"获取姓名失败",Toast.LENGTH_SHORT).show();
+                map.put("name","空姓名");
+            }
+            Cursor cs3 = cr.query(uri, new String[]{"data1"}, "mimetype_id=? and raw_contact_id=?", new String[]{"5", id + ""}, null);
+            if (cs3.moveToPosition(0)) {
+                System.out.println("cs3.isNUll" + cs3.isNull(1));
+                map.put("phone", cs3.getString(0));
+            }else {
+                Toast.makeText(context,"获取电话失败",Toast.LENGTH_SHORT).show();
+                map.put("phone","空电话");
+            }
+            Cursor cs4 = cr.query(uri, new String[]{"data1"}, "mimetype_id=? and raw_contact_id=?", new String[]{"1", id + ""}, null);
+            if(cs4.moveToPosition(0)) {
+                System.out.println("cs4.getColumnName" + cs4.getColumnName(0));
+                map.put("email", cs4.getString(0));
+            }else {
+                Toast.makeText(context,"获取邮箱失败",Toast.LENGTH_SHORT).show();
+                map.put("email", "空邮箱");
+            }
+            list.add(map);
+        }
+        return list;
+    }
 }
 
 
