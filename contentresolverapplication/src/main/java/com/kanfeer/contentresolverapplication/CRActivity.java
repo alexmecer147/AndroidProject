@@ -37,15 +37,17 @@ public class CRActivity extends AppCompatActivity {
     private Button buttonUpdate;
     private Button buttonQuery;
     private Cursor cs;
+    private ContentResolver cr;
 
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_r);
-        Uri uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/workerall");
+        uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/workerall");
         //getContentResolver().registerContentObserver(uri,true,new KFContentObserver(new Handler()));
-        ContentResolver cr = getApplicationContext().getContentResolver();
+        cr = this.getContentResolver();
         listView = findViewById(R.id.listView_resolver);
         editTextId = findViewById(R.id.editText_id);
         editTextName = findViewById(R.id.editText_name);
@@ -56,8 +58,8 @@ public class CRActivity extends AppCompatActivity {
         buttonUpdate = findViewById(R.id.button_update);
         buttonQuery = findViewById(R.id.button_query);
         workers = new ArrayList<>();
-        cs = cr.query(uri,new String[]{"workerId","workerName","workerAge","workerTall"},null,null);
-//        initListView();
+        //
+        //initListView();
         try {
             System.out.println(cs.isNull(0)+"99");
         }catch (Exception e){
@@ -66,11 +68,12 @@ public class CRActivity extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/insertworker");
                 ContentValues cv = new ContentValues();
-                cv.put("workerId",Integer.parseInt(editTextId.getText().toString()));
+                cv.put("workerId",editTextId.getText().toString());
                 cv.put("workerName",editTextName.getText().toString());
-                cv.put("workerAge",Integer.parseInt(editTextAge.getText().toString()));
-                cv.put("workerTall",Integer.parseInt(editTextTall.getText().toString()));
+                cv.put("workerAge",editTextAge.getText().toString());
+                cv.put("workerTall",editTextTall.getText().toString());
                 cr.insert(uri,cv);
                 initListView();
             }
@@ -78,6 +81,7 @@ public class CRActivity extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/deleteworker/"+editTextId.getText());
                 cr.delete(uri,"workerId = ?",new String[]{editTextId.getText().toString()});
                 initListView();
             }
@@ -85,12 +89,13 @@ public class CRActivity extends AppCompatActivity {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/updateworker");
                 ContentValues cv = new ContentValues();
-                cv.put("workerId",Integer.parseInt(editTextId.getText().toString()));
+                cv.put("workerId",editTextId.getText().toString());
                 cv.put("workerName",editTextName.getText().toString());
-                cv.put("workerAge",Integer.parseInt(editTextAge.getText().toString()));
-                cv.put("workerTall",Integer.parseInt(editTextAge.getText().toString()));
-                cr.update(uri,cv,"workerId = ?",new String[]{editTextId.getText().toString()});
+                cv.put("workerAge",editTextAge.getText().toString());
+                cv.put("workerTall",editTextTall.getText().toString());
+                long i = cr.update(uri,cv,"workerId = ?",new String[]{editTextId.getText().toString()});
                 initListView();
             }
         });
@@ -116,7 +121,11 @@ public class CRActivity extends AppCompatActivity {
         });
 
     }
+
     public void initListView(){
+        uri = Uri.parse("content://com.kanfeer.contentproviderapplication.KFContentProvider/workerall");
+        cs = cr.query(uri,new String[]{"workerId","workerName","workerAge","workerTall"},null,null,null);
+        workers.clear();
         while (cs.moveToNext()){
             Map<String,String> map = new HashMap<>();
             map.put("workerId",String.valueOf(cs.getInt(0)));

@@ -67,7 +67,7 @@ public class KFContentProvider extends ContentProvider {
                 throw new IllegalArgumentException("未知的URI");
         }
         db.close();
-        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"worker"),null);
+        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"/workerall"),null);
         return null;
     }
 
@@ -86,7 +86,7 @@ public class KFContentProvider extends ContentProvider {
                 throw new IllegalArgumentException("未知的uri");
         }
         db.close();
-        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"worker"),null);
+        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"/workerall"),null);
         return t;
     }
 
@@ -102,7 +102,7 @@ public class KFContentProvider extends ContentProvider {
                 throw new IllegalArgumentException("未知的uri");
         }
         db.close();
-        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"worker"),null);
+        this.getContext().getContentResolver().notifyChange(Uri.parse("content://"+AUTHORITY+"/worker"),null);
         return t;
     }
 }

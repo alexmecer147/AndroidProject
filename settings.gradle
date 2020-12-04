@@ -1,3 +1,4 @@
+include ':broadcastapplication'
 include ':systemcontentproviderapplication'
 include ':contentresolverapplication'
 include ':contentproviderapplication'
