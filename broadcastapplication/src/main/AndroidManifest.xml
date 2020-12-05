@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kanfeer.broadcastapplication">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <permission android:name="broadcastapplication.action.SEND_MASSAGE" android:protectionLevel="normal"/>
 
     <application
         android:allowBackup="true"
@@ -11,12 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloAndroid">
+
+        <receiver
+            android:name=".TheFirstReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="5">
+                <action android:name="com.kanfeer.action.sendmsg"/>
+            </intent-filter>
+        </receiver>
+
         <receiver
             android:name=".BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
@@ -28,5 +38,8 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="broadcastapplication.action.SEND_MASSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 </manifest>
