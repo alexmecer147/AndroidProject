@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setComponent(new ComponentName("com.kanfeer.broadcastapplication","com.kanfeer.broadcastapplication.TheFirstReceiver"));
                 //System.out.println(editTextBroadcast.getText().toString()+"8888");
                 Log.i(TAG,editTextBroadcast.getText().toString());
-                sendOrderedBroadcast(intent,null);
+                sendOrderedBroadcast(intent,"broadcastapplication.action.SEND_MASSAGE");
             }
         });
     }

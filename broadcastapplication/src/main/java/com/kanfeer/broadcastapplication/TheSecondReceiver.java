@@ -13,8 +13,10 @@ public class TheSecondReceiver extends BroadcastReceiver {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
        // throw new UnsupportedOperationException("Not yet implemented");
-        Bundle bundle = getResultExtras(true);
-        String smsg = bundle.getString("msg")+"第二个receiver也收到了";
-        Toast.makeText(context,smsg,Toast.LENGTH_LONG).show();
+        Bundle bd = getResultExtras(true);
+       // System.out.println(bundle.isEmpty()+"kkkornnn");
+
+        String smsg = bd.getString("next")+"第二个receiver也收到了";
+        Toast.makeText(context,smsg,Toast.LENGTH_SHORT).show();
     }
 }
