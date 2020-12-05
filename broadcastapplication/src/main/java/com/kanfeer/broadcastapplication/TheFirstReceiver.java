@@ -3,6 +3,7 @@ package com.kanfeer.broadcastapplication;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Toast;
 
 public class TheFirstReceiver extends BroadcastReceiver {
@@ -19,5 +20,8 @@ public class TheFirstReceiver extends BroadcastReceiver {
        // System.out.println(msg+"9999");
         //Log.i(TAG,msg);
         Toast.makeText(context,msg,Toast.LENGTH_LONG).show();
+        Bundle bd = new Bundle();
+        bd.putString("next",msg);
+        setResultExtras(bd);
     }
 }
