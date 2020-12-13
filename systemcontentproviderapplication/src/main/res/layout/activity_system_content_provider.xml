@@ -7,15 +7,6 @@
     tools:context=".activity.SystemContentProviderActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,25 +62,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="sys插入"/>
+            android:text="添加"/>
         <Button
             android:id="@+id/button_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="sys删除"/>
+            android:text="删除"/>
         <Button
             android:id="@+id/button_update"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="sys修改"/>
+            android:text="修改"/>
         <Button
             android:id="@+id/button_query"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="sys查询"/>
+            android:text="查询"/>
     </LinearLayout>
     <ListView
         android:id="@+id/listView_system"

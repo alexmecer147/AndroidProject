@@ -1,6 +1,5 @@
 package com.kanfeer.broadcastapplication;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent("com.kanfeer.action.sendmsg");
 //                intent.setAction();
                 intent.putExtra("msg",editTextBroadcast.getText().toString());
-                intent.setComponent(new ComponentName("com.kanfeer.broadcastapplication","com.kanfeer.broadcastapplication.TheFirstReceiver"));
+                //intent.setComponent(new ComponentName("com.kanfeer.broadcastapplication","com.kanfeer.broadcastapplication.TheFirstReceiver"));
+                //intent.setComponent(new ComponentName("com.kanfeer.broadcastapplication","com.kanfeer.broadcastapplication.TheSecondReceiver"));
                 //System.out.println(editTextBroadcast.getText().toString()+"8888");
                 Log.i(TAG,editTextBroadcast.getText().toString());
                 sendOrderedBroadcast(intent,"broadcastapplication.action.SEND_MASSAGE");
